@@ -29,8 +29,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       color: UIColors.backgroundColor,
       darkTheme: ThemeData(
-        backgroundColor: UIColors.backgroundColor,
-        bottomAppBarColor: UIColors.secondaryColor,
         appBarTheme: AppBarTheme(
           color: UIColors.backgroundColor,
         ),

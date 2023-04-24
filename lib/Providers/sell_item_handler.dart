@@ -33,15 +33,19 @@ class SellItemHandler extends ChangeNotifier {
     notifyListeners();
   }
 
-  void discard() {}
+  void discard() {
+    item = Product();
+  }
 
-  void createPost() {
+  void createPost(BuildContext context) {
     if (item.hasMissingFields()) {
       log("Please fill every field to post your item");
     } else {
-      try{
+      try {
         final firestoreInstance = FirebaseFirestore.instance;
-      firestoreInstance.collection('items_to_sell').add(item.mappedData());
+        firestoreInstance.collection('items_to_sell').add(item.mappedData());
+  Navigator.of(context).pop();
+  discard();
       } catch (error) {
         log(error.toString());
       }
@@ -65,15 +69,16 @@ class Product {
       'Description': description,
       'Price': price,
       'Title': title,
-      'Photos': images,
-    };  }
+      'Photos': images!.map((e) => json.base64Encode(e)).toList()
+    };
+  }
 
   bool hasMissingFields() {
-    return title != null &&
-        category != null &&
-        description != null &&
-        price != null &&
-        images != null;
+    return title == null ||
+        category == null ||
+        description == null ||
+        price == null ||
+        images == null;
   }
 
   void addImage(Uint8List value) {

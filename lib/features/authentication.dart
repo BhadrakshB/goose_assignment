@@ -32,8 +32,7 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           splashFactory: InkSplash.splashFactory,
           backgroundColor: provider == SignInOptions.email || provider == null
-              ? UIColors.primaryColor
-              : UIColors.secondaryColor,
+              ? backgroundColor != null ? backgroundColor : UIColors.primaryColor      : UIColors.secondaryColor,
           padding: const EdgeInsets.symmetric(vertical: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(1000),

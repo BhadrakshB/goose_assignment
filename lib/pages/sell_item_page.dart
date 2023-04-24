@@ -42,10 +42,10 @@ class SellItemPage extends StatelessWidget {
                 label: "Create Post",
                 backgroundColor: UIColors.primaryColor,
                 onTap: () {
-                  context.read<SellItemHandler>().createPost();
+                  context.read<SellItemHandler>().createPost(context);
                 },
-              ),
-            ),
+                    ),
+                  ),
           ],
         ),
       ),
@@ -115,7 +115,7 @@ class SellItemPage extends StatelessWidget {
                 label: "Price*",
                 prefixIcon: const Icon(Icons.currency_rupee),
                 onChanged: (value) {
-                  context.read<SellItemHandler>().changePrice(value as double);
+                  context.read<SellItemHandler>().changePrice(double.parse(value as String));
                 },
               ),
               SelectedPhotoPreview(
