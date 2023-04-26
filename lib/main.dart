@@ -32,21 +32,38 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: UIColors.backgroundColor,
         ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: UIColors.secondaryColor,
+        ),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            color: Colors.white,
+          ),
+        ).apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.white,
+        ),
+      ),
       initialRoute: 'sign_in_page',
       routes: {
         'sign_in_page': (context) => ChangeNotifierProvider(
               create: (context) => AuthenticationHandler(),
               child: const SignInPage(),
             ),
+        'profile_settings_page': (context) => MultiProvider(
+              providers: [
+                ChangeNotifierProvider(create: (context) => ProfileSettingsHandler()),
+                ChangeNotifierProvider(
+                    create: (context) => AuthenticationHandler()),
+              ],
+              child: const ProfileSettingsPage(),
+            ),
         'sell_item_page': (context) => ChangeNotifierProvider(
               create: (context) => SellItemHandler(),
               child: const SellItemPage(),
-            ),
-        'profile_settings_page': (context) => ChangeNotifierProvider(
-              create: (context) => ProfileSettingsHandler(),
-              child: const ProfileSettingsPage(),
             ),
         'sign_up_page': (context) => ChangeNotifierProvider(
               create: (context) => SignUpHandler(),

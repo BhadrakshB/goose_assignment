@@ -23,13 +23,20 @@ class SignInPage extends StatelessWidget {
           children: [
             const Text(
               "Let's get you in",
-              style: TextStyle(fontSize: 28),
+              style: TextStyle(
+                fontSize: 28,
+                color: Colors.white,
+              ),
             ),
             const SizedBox(height: 30.0),
             CustomButton(
                 onTap: () async {
-                  bool signedIn = await context.read<AuthenticationHandler>().signInGoogle();
-                  signedIn ? Navigator.of(context).pushNamed('profile_settings_page') : null;
+                  bool signedIn = await context
+                      .read<AuthenticationHandler>()
+                      .signInGoogle();
+                  signedIn
+                      ? Navigator.of(context).pushNamed('profile_settings_page')
+                      : null;
                 },
                 provider: SignInOptions.google),
             const SizedBox(height: 20.0),
@@ -45,7 +52,10 @@ class SignInPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("or"),
+                  child: Text("or",
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
                 ),
                 Expanded(
                   child: Divider(
@@ -61,6 +71,7 @@ class SignInPage extends StatelessWidget {
             Text.rich(
               TextSpan(
                 text: "Don't have an account? ",
+                style: const TextStyle(color: Colors.white),
                 children: [
                   TextSpan(
                     recognizer: TapGestureRecognizer()

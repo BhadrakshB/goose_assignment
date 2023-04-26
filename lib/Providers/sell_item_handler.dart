@@ -44,8 +44,16 @@ class SellItemHandler extends ChangeNotifier {
       try {
         final firestoreInstance = FirebaseFirestore.instance;
         firestoreInstance.collection('items_to_sell').add(item.mappedData());
-  Navigator.of(context).pop();
-  discard();
+        // log("${}");
+        firestoreInstance
+            .collection('items_to_sell')
+            .where('Description', arrayContains: item.description)
+            .get()
+            .then((value) {
+          log(value.docs.toString());;
+        });
+        Navigator.of(context).pop();
+        discard();
       } catch (error) {
         log(error.toString());
       }

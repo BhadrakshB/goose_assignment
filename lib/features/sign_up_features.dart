@@ -32,7 +32,10 @@ class _UserDetailsTextFieldState extends State<UserDetailsTextField> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.label),
+          Text(widget.label,
+              style: TextStyle(
+                color: Colors.white,
+              )),
           TextField(
             onChanged: (value) {
               log(value);
@@ -57,6 +60,9 @@ class _UserDetailsTextFieldState extends State<UserDetailsTextField> {
               }
             },
             controller: widget.controller,
+            style: TextStyle(
+              color: Colors.white,
+            ),
             decoration: InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 0, vertical: 10),
@@ -122,8 +128,14 @@ class _RememberMeState extends State<RememberMe> {
           alignment: Alignment.center,
           children: [
             Checkbox(
+              side: BorderSide(
+                color: Colors.white,
+              ),
               visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
               shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: Colors.white,
+                  ),
                   borderRadius: BorderRadius.circular(5)),
               activeColor: widget.selectedColor,
               checkColor: widget.selectedColor,
@@ -148,6 +160,7 @@ class _RememberMeState extends State<RememberMe> {
         Text(
           widget.label,
           style: const TextStyle(
+            color: Colors.white,
             fontSize: 16,
           ),
         ),

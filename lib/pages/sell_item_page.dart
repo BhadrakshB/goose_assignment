@@ -44,8 +44,8 @@ class SellItemPage extends StatelessWidget {
                 onTap: () {
                   context.read<SellItemHandler>().createPost(context);
                 },
-                    ),
-                  ),
+              ),
+            ),
           ],
         ),
       ),
@@ -70,12 +70,14 @@ class SellItemPage extends StatelessWidget {
                         "Sell an item",
                         style: TextStyle(
                           fontSize: 18,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         "Herald Towers",
                         style: TextStyle(
+                          color: Colors.white,
                           fontSize: 12,
                         ),
                       ),
@@ -115,7 +117,9 @@ class SellItemPage extends StatelessWidget {
                 label: "Price*",
                 prefixIcon: const Icon(Icons.currency_rupee),
                 onChanged: (value) {
-                  context.read<SellItemHandler>().changePrice(double.parse(value as String));
+                  context
+                      .read<SellItemHandler>()
+                      .changePrice(double.parse(value as String));
                 },
               ),
               SelectedPhotoPreview(
@@ -152,7 +156,12 @@ class SellItemPage extends StatelessWidget {
                         ),
                         child: const Icon(Icons.add),
                       ),
-                      const Text("Add Photos"),
+                      const Text(
+                        "Add Photos",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 ),

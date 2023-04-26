@@ -50,13 +50,18 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget titleRow = Text(
       title,
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      style: TextStyle(
+          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
     );
     dynamic action;
     if (subtitle != null) {
       titleRow = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [titleRow, const SizedBox(height: 10.0), Text(subtitle!)],
+        children: [
+          titleRow,
+          const SizedBox(height: 10.0),
+          Text(subtitle!, style: const TextStyle(color: Colors.white))
+        ],
       );
     }
 
@@ -120,11 +125,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               currentPage = value;
             }),
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Discover'),
-              BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Items'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home), label: 'Discover'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.shopping_cart), label: 'Items'),
               BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
-              BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Services'),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.star), label: 'Services'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: 'Profile'),
             ],
           ),
         ),
@@ -135,10 +144,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               BoxShadow(
                 color: UIColors.backgroundColor,
                 offset: Offset(0, 3),
-                
               )
             ],
-            color: UIColors.secondaryColor,
+            color: UIColors.secondaryColor
+                .withRed(UIColors.secondaryColor.red + 20)
+                .withBlue(UIColors.secondaryColor.blue + 20)
+                .withGreen(UIColors.secondaryColor.green + 20),
             borderRadius: BorderRadius.circular(1000),
           ),
           child: IconButton(

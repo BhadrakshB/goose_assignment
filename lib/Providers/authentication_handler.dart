@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationHandler extends ChangeNotifier {
-   GoogleSignInAccount? userAccount;
+  GoogleSignInAccount? userAccount;
   GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: [
       'email',
@@ -35,5 +35,12 @@ class AuthenticationHandler extends ChangeNotifier {
       log(error.toString());
       return false;
     }
+  }
+
+  void logout() async {
+    
+    var logs = await googleSignIn.signOut();
+    log(logs.toString());
+    userAccount = null;
   }
 }

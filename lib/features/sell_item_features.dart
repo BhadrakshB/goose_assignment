@@ -43,6 +43,7 @@ class _LabelledFieldState extends State<LabelledField> {
           Text(
             widget.label,
             style: const TextStyle(
+              color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -67,20 +68,36 @@ class _LabelledFieldState extends State<LabelledField> {
                     items: const [
                       DropdownMenuItem(
                         value: 'Household',
-                        child: Text("Household"),
+                        child: Text(
+                          "Household",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                       DropdownMenuItem(
                         value: 'Electical Appliances',
-                        child: Text("Electical Appliances"),
+                        child: Text(
+                          "Electical Appliances",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                       DropdownMenuItem(
                         value: 'Car Accessories',
-                        child: Text("Car Accessories"),
+                        child: Text(
+                          "Car Accessories",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ],
                     onChanged: (value) {
                       setState(() {
                         widget.onChanged(value);
+                        dropDownValue = value ?? 'Household';
                       });
                     },
                   ),
@@ -142,13 +159,15 @@ class SelectedPhotoPreview extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Image.memory(images!.elementAt(index),),
+                      child: Image.memory(
+                        images!.elementAt(index),
+                      ),
                     ),
                     IconButton(
                       visualDensity:
                           const VisualDensity(horizontal: -4, vertical: -4),
                       padding: const EdgeInsets.all(0),
-                      constraints:const  BoxConstraints(),
+                      constraints: const BoxConstraints(),
                       icon: Icon(
                         Icons.cancel,
                         color: UIColors.secondaryColor,
@@ -163,7 +182,7 @@ class SelectedPhotoPreview extends StatelessWidget {
                 ),
               ),
             )
-          : const Center(child: Text("No photos selected")),
+          : const Center(child: Text("No photos selected", style: TextStyle(color:Colors.white,),)),
     );
   }
 }
