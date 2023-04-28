@@ -1,6 +1,6 @@
 # Flutter Assignment for Goose
 
-This Flutter assignment was created by [Your Name] for Goose. The project includes the implementation of Firebase and Firebase Firestore Database, Google Sign In, and Provider Package. 
+This Flutter assignment was created by Bhadraksh Bhargava for Goose. The project includes the implementation of Firebase and Firebase Firestore Database, Google Sign In, and Provider Package. 
 
 The file structure of the project has been organized efficiently to make the code easy to read and navigate. 
 
